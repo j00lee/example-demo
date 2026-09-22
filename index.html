@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trace | Drawing canvas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="." aria-label="Trace home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>trace</span>
+        </a>
+        <span class="status" id="status">Ready to draw</span>
+      </header>
+
+      <section class="workspace" aria-label="Drawing workspace">
+        <div class="canvas-frame">
+          <canvas id="drawing-canvas" aria-label="Drawing canvas"></canvas>
+          <div class="canvas-hint" id="canvas-hint">
+            <span class="hint-dot" aria-hidden="true"></span>
+            <span>Start a line anywhere</span>
+          </div>
+        </div>
+
+        <aside class="tool-panel" aria-label="Drawing tools">
+          <div class="panel-heading">
+            <span class="eyebrow">Canvas tools</span>
+            <h1>Make a mark.</h1>
+          </div>
+
+          <div class="tool-group">
+            <span class="group-label">Tool</span>
+            <div class="tool-switcher" role="group" aria-label="Drawing tool">
+              <button class="tool-button is-active" type="button" data-tool="pencil" aria-pressed="true">
+                <span class="tool-icon pencil-icon" aria-hidden="true"></span>
+                <span>Pencil</span>
+                <kbd>P</kbd>
+              </button>
+              <button class="tool-button" type="button" data-tool="eraser" aria-pressed="false">
+                <span class="tool-icon eraser-icon" aria-hidden="true"></span>
+                <span>Eraser</span>
+                <kbd>E</kbd>
+              </button>
+            </div>
+          </div>
+
+          <div class="tool-group size-group">
+            <div class="size-label-row">
+              <span class="group-label">Size</span>
+              <output id="size-output" for="size-control">6 px</output>
+            </div>
+            <input id="size-control" type="range" min="1" max="48" value="6" aria-label="Brush size" />
+            <div class="range-labels" aria-hidden="true"><span>Fine</span><span>Bold</span></div>
+          </div>
+
+          <div class="panel-footer">
+            <button class="clear-button" id="clear-button" type="button">
+              <span class="clear-icon" aria-hidden="true">×</span>
+              <span>Clear canvas</span>
+            </button>
+            <p>Use <kbd>P</kbd> and <kbd>E</kbd> to switch tools.</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
